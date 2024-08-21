@@ -74,7 +74,12 @@ class CustomHelpCommand(commands.HelpCommand):
 
 
 bot.help_command = CustomHelpCommand()
-
+#zid chof hdi
+@bot.event
+async def on_member_join(member):
+    channel = discord.utils.get(member.guild.channels, name='general')
+    if channel:
+        await channel.send(f'Welcome to the server, {member.mention}!')
 
 @bot.event
 async def on_ready():
